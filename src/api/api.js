@@ -1,10 +1,11 @@
 
 
 export const getGeoData = async ()=>{
-    const promise = await fetch('http://api.ipstack.com/check?access_key=ce43b9472f5f4a2379636b82cd17bc83');
-    const getGeoData = await promise.json();
+   // const promise = await fetch('http://api.ipstack.com/check?access_key=ce43b9472f5f4a2379636b82cd17bc83');
+    const promise = await fetch('https://ipinfo.io?token=5455558e65b8b4');
+    const geoData = await promise.json();
 
-    return getGeoData;
+    return geoData;
 };
 
 export const getAllCurrency = async ()=>{
