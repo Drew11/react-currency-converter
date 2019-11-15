@@ -1,6 +1,6 @@
 {
   "name": "react-currency-converter",
-  "homepage":"https://drew11.github.io/react-currency-converter/",
+  "homepage":"http://drew11.github.io/react-currency-converter/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

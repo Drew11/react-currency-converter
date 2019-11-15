@@ -66,7 +66,7 @@ class App extends React.Component{
     convertValue = async ()=>{
         const url =  `https://api.exchangeratesapi.io/latest?base=${this.state.baseCurrency}`;
         const promise = await fetch(url);
-        const  convertingValue= await promise.json();
+        const convertingValue= await promise.json();
         const value = convertingValue.rates[this.state.selectedCurrency];
 
         this.setState({...this.state, convertingValue: Math.floor(value*10000) / 10000})
