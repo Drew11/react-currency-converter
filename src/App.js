@@ -26,7 +26,7 @@ const App = () => {
 
             <main>
                 <Switch>
-                    <Redirect exact from="/" to="/converter" />
+                    <Redirect exact from="/react-currency-converter/" to="/converter" />
 
                     <Route exact path="/converter">
                         <Converter/>
@@ -36,6 +36,7 @@ const App = () => {
                         <CurrencyRates/>
                     </Route>
                 </Switch>
+
             </main>
             <footer>
             </footer>
