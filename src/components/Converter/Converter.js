@@ -42,7 +42,7 @@ const Converter = () => {
         setChangedSelectedCurrency();
     }, [selectedCurrency]);
 
-    const changeBase = async (event) => {
+    const changeBase = (event) => {
         setBaseCurrency(event.target.value)
     };
 
