@@ -28,11 +28,11 @@ const App = () => {
                 <Switch>
                     <Redirect exact from="/" to="/converter" />
 
-                    <Route  path="/converter">
+                    <Route exact path="/converter">
                         <Converter/>
                     </Route>
 
-                    <Route  path="/currency_rates">
+                    <Route exact path="/currency_rates">
                         <CurrencyRates/>
                     </Route>
                 </Switch>
