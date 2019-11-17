@@ -25,10 +25,10 @@ const App = () => {
                 </header>
 
                 <main>
-                    <Switch>
+
                         <Route  exact path="/" component={Converter}/>
                         <Route  exact path="/currency_rates/" component={CurrencyRates}/>
-                    </Switch>
+
                 </main>
                 <footer>
                 </footer>
