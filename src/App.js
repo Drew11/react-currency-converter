@@ -9,7 +9,7 @@ import './App.css';
 
 const App = () => {
     return (
-        <HashRouter basename="/">
+        <HashRouter basename="/react-currency-converter/">
             <div className="App">
                 <header className="App-header">
 
