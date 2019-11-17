@@ -13,10 +13,10 @@ const App = () => {
 
                 <Nav variant="tabs" defaultActiveKey="/home">
                     <Nav.Item>
-                        <Nav.Link href="/react-currency-converter/converter">Converter</Nav.Link>
+                        <Nav.Link href="/converter">Converter</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/react-currency-converter/currency_rates">
+                        <Nav.Link href="/currency_rates">
                             Currency Rates
                         </Nav.Link>
                     </Nav.Item>
@@ -26,11 +26,10 @@ const App = () => {
 
             <main>
                 <Switch>
-                    <Redirect exact from="/react-currency-converter/" to="/converter" />
+                    <Redirect exact from="/" to="/converter" />
 
-                    <Route exact path="/converter">
-                        <Converter/>
-                    </Route>
+                    <Route exact path="/converter" component={Converter}/>
+
 
                     <Route exact path="/currency_rates">
                         <CurrencyRates/>
