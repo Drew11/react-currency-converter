@@ -3,7 +3,7 @@ import Converter from './components/Converter/Converter';
 import CurrencyRates from './components/CurrencyRates/CurrencyRates';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Nav} from 'react-bootstrap';
-import {Route, Switch,} from "react-router";
+import {Route, Redirect, Switch} from "react-router";
 import './App.css';
 
 const App = () => {
@@ -13,22 +13,18 @@ const App = () => {
 
                     <Nav variant="tabs">
                         <Nav.Item>
-                            <Nav.Link href="./">Converter</Nav.Link>
+                            <Nav.Link href="/">Converter</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="./currency_rates">
+                            <Nav.Link href="/currency_rates">
                                 Currency Rates
                             </Nav.Link>
                         </Nav.Item>
                     </Nav>
-
                 </header>
-
                 <main>
-
                         <Route  exact path="/" component={Converter}/>
-                        <Route  exact path="/currency_rates/" component={CurrencyRates}/>
-
+                        <Route  path="/currency_rates/" component={CurrencyRates}/>
                 </main>
                 <footer>
                 </footer>
