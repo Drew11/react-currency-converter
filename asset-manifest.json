@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-currency-converter/static/css/main.a832d3e3.chunk.css",
-    "main.js": "/react-currency-converter/static/js/main.fc0d1caa.chunk.js",
-    "main.js.map": "/react-currency-converter/static/js/main.fc0d1caa.chunk.js.map",
+    "main.js": "/react-currency-converter/static/js/main.c4d80702.chunk.js",
+    "main.js.map": "/react-currency-converter/static/js/main.c4d80702.chunk.js.map",
     "runtime-main.js": "/react-currency-converter/static/js/runtime-main.3b96fbb5.js",
     "runtime-main.js.map": "/react-currency-converter/static/js/runtime-main.3b96fbb5.js.map",
     "static/css/2.b0bb7f2c.chunk.css": "/react-currency-converter/static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.33f7b48b.chunk.js": "/react-currency-converter/static/js/2.33f7b48b.chunk.js",
-    "static/js/2.33f7b48b.chunk.js.map": "/react-currency-converter/static/js/2.33f7b48b.chunk.js.map",
+    "static/js/2.28de20d7.chunk.js": "/react-currency-converter/static/js/2.28de20d7.chunk.js",
+    "static/js/2.28de20d7.chunk.js.map": "/react-currency-converter/static/js/2.28de20d7.chunk.js.map",
     "index.html": "/react-currency-converter/index.html",
-    "precache-manifest.953b550871dc0e89a672d7c44a23eac2.js": "/react-currency-converter/precache-manifest.953b550871dc0e89a672d7c44a23eac2.js",
+    "precache-manifest.c61faa16abd5fc6ea5bb77c6fec8a330.js": "/react-currency-converter/precache-manifest.c61faa16abd5fc6ea5bb77c6fec8a330.js",
     "service-worker.js": "/react-currency-converter/service-worker.js",
     "static/css/2.b0bb7f2c.chunk.css.map": "/react-currency-converter/static/css/2.b0bb7f2c.chunk.css.map",
     "static/css/main.a832d3e3.chunk.css.map": "/react-currency-converter/static/css/main.a832d3e3.chunk.css.map"
@@ -17,8 +17,8 @@
   "entrypoints": [
     "static/js/runtime-main.3b96fbb5.js",
     "static/css/2.b0bb7f2c.chunk.css",
-    "static/js/2.33f7b48b.chunk.js",
+    "static/js/2.28de20d7.chunk.js",
     "static/css/main.a832d3e3.chunk.css",
-    "static/js/main.fc0d1caa.chunk.js"
+    "static/js/main.c4d80702.chunk.js"
   ]
 }
