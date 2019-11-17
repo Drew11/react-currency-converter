@@ -1,52 +1,28 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import Favorites from '../Favorites/Favorites';
 import {Button, ListGroup} from 'react-bootstrap';
-import {getAllInfoCurrency} from '../../api/api';
 import {convertToOptions} from '../../api/helpers';
 import './current-rates.css';
 
-const CurrencyRates = () => {
+const CurrencyRates = (props) => {
 
-    const [allCurrency, setAllCurrency] = useState({});
-    const [base, setBase] = useState('USD');
-    const [favorites, setFavorites] = useState({});
-
-    useEffect(() => {
-        async function fetchData() {
-            const currency = await getAllInfoCurrency(base);
-            setAllCurrency(currency);
-        }
-        fetchData();
-    }, []);
-
-    useEffect(() => {
-
-            for (let k in favorites) {
-                favorites[k] = allCurrency.rates[k]
-            }
-            setFavorites(favorites);
-        },
-        [allCurrency]
-    );
-
+    const {stuffForRates} = props;
 
     const addFavorites = (key, value) => {
-        if (!favorites.hasOwnProperty(key)) {
-            const copy = {...favorites};
+        if (!stuffForRates.favorites.hasOwnProperty(key)) {
+            const copy = {...stuffForRates.favorites};
             copy[key] = value;
-            setFavorites(copy)
+            stuffForRates.setFavorites(copy)
         }
     };
 
-    const changeBase = async (event) => {
-        const currency = await getAllInfoCurrency(event.target.value);
-        setAllCurrency(currency);
-        setBase(currency.base);
+    const changeBase = (event) => {
+        stuffForRates.setBaseForRates(event.target.value)
     };
 
     const createListItems = () => {
-        if (allCurrency.rates) {
-            const array = Object.entries(allCurrency.rates);
+        if (stuffForRates.currencyForRates.rates) {
+            const array = Object.entries(stuffForRates.currencyForRates.rates);
             const copy = [...array];
             copy.sort((a, b) => a[0].localeCompare(b[0]));
 
@@ -69,6 +45,17 @@ const CurrencyRates = () => {
         }
     };
 
+    useEffect(() => {
+            const copy = {...stuffForRates.favorites};
+
+            for (let k in copy) {
+                copy[k] = stuffForRates.currencyForRates.rates[k]
+            }
+            stuffForRates.setFavorites(copy);
+        },
+        [stuffForRates.currencyForRates.base]
+    );
+
     return (
         <div className="container__currency-rates">
             <div className="currency-rates">
@@ -78,10 +65,10 @@ const CurrencyRates = () => {
           >
               <span>Base:</span>
               <select name="base"
-                      value={base}
+                      value={stuffForRates.baseForRates}
                       onChange={changeBase}
               >
-                  {convertToOptions(allCurrency.rates)}
+                  {convertToOptions(stuffForRates.currencyForRates.rates)}
 
               </select>
           </span>
@@ -89,7 +76,6 @@ const CurrencyRates = () => {
                 <ListGroup
                     variant="flush"
                     className="list__group"
-                    size={4}
                 >
                     {createListItems()}
                 </ListGroup>
@@ -97,7 +83,7 @@ const CurrencyRates = () => {
             </div>
 
             <Favorites
-                favorites={favorites}
+                favorites={stuffForRates.favorites}
             />
 
         </div>

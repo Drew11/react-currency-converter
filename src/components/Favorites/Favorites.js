@@ -14,8 +14,9 @@ const Favorites = (props) => {
 
             <Dropdown.Menu>
 
-                {Object.entries(favorites).map(item =>
+                {Object.entries(favorites).map((item, index) =>
                     <Dropdown.Item
+                        key={index}
                     >
                         {`${item[0]}: ${item[1]}` }
                     </Dropdown.Item>
