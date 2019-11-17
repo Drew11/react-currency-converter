@@ -3,35 +3,40 @@ import Converter from './components/Converter/Converter';
 import CurrencyRates from './components/CurrencyRates/CurrencyRates';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Nav} from 'react-bootstrap';
-import {Route} from "react-router";
-import {Link} from "react-router-dom";
+import {Redirect, Route} from "react-router";
+import {LinkContainer} from 'react-router-bootstrap'
 import './App.css';
 
 const App = () => {
     return (
-            <div className="App">
-                <header className="App-header">
-
-                    <Nav variant="tabs">
-                        <Nav.Item>
-                            <Nav.Link >
-                                <Link to={"/"}>Converter</Link>
-                            </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
+        <div className="App">
+            <header className="App-header">
+                <Nav variant="tabs">
+                    <Nav.Item>
+                        <LinkContainer to="/converter">
                             <Nav.Link>
-                                <Link to={"/currency_rates"}>Currency Rates</Link>
+                                Converter
                             </Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                </header>
-                <main>
-                        <Route  exact path="/" component={Converter}/>
-                        <Route  path="/currency_rates" component={CurrencyRates}/>
-                </main>
-                <footer>
-                </footer>
-            </div>
+                        </LinkContainer>
+
+                    </Nav.Item>
+                    <Nav.Item>
+                        <LinkContainer to="/currency_rates">
+                            <Nav.Link>
+                                Currency Rates
+                            </Nav.Link>
+                        </LinkContainer>
+                    </Nav.Item>
+                </Nav>
+            </header>
+            <main>
+                <Redirect exact from="/" to={"/converter"}/>
+                <Route exact path="/converter" component={Converter}/>
+                <Route exact path="/currency_rates" component={CurrencyRates}/>
+            </main>
+            <footer>
+            </footer>
+        </div>
     );
 };
 
