@@ -16,7 +16,7 @@ const App = () => {
                         <Nav.Link href="/">Converter</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/currency_rates">
+                        <Nav.Link href="./currency_rates">
                             Currency Rates
                         </Nav.Link>
                     </Nav.Item>
