@@ -4,7 +4,7 @@ import './favorites.css';
 
 const Favorites = (props) => {
 
-    const {favorites } = props;
+    const { favorites } = props;
 
     return (
         <Dropdown>

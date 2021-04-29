@@ -5,12 +5,21 @@ const getGeoData = async ()=>{
     return geoData;
 };
 
+export const getBaseUserGeoCurrency = async ()=> {
+    const location = await getGeoData();
+    const countryCurrency = await getCountryCurrency(location.country);
+    const baseCurrency = countryCurrency.currencies[0].code;
+    return baseCurrency
+};
+
 export const getAllInfoCurrency = async (base)=>{
-    const url = `https://api.exchangeratesapi.io/latest?base=${base}`;
-   // const promise = await fetch(`http://data.fixer.io/api/latest?access_key=032f3ff907cc406f6edc0a4a469ebfe3&base=USD&symbols=UAH`);
-    const promise = await fetch(url);
+    const APIkey = 'a515eed149f7937c6e2ce9c8';
+    const URL = `https://v6.exchangerate-api.com/v6/${APIkey}/latest/${base}`;
+    const promise = await fetch(URL, {
+        mode: "cors",
+    });
     const currency = await promise.json();
-    return currency;
+    return currency.conversion_rates;
 };
 
 export const getCountryCurrency = async (country)=>{
@@ -19,17 +28,9 @@ export const getCountryCurrency = async (country)=>{
     return countryCurrency;
 };
 
-export const getBaseUserGeoCurrency = async ()=> {
-    const location = await getGeoData();
-    const countryCurrency = await getCountryCurrency(location.country);
-
-    const baseCurrency = countryCurrency.currencies[0].code;
-    return baseCurrency
-};
 
 export const convertValue = async (selected, base) => {
     const convertingValue = await getAllInfoCurrency(selected);
-    const value = convertingValue.rates[base];
-
+    const value = convertingValue[base];
     return value
 };

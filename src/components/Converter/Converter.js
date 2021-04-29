@@ -1,46 +1,36 @@
-import React, {useEffect, useState, useCallback} from 'react';
-import {convertValue, getAllInfoCurrency} from "../../api/api";
+import React, {useEffect, useState } from 'react';
+import {convertValue, getAllInfoCurrency,  getBaseUserGeoCurrency} from "../../api/api";
 import {convertToOptions} from '../../api/helpers';
 import './converter.css';
 
 const Converter = () => {
 
-    const [allCurrency, setAllCurrency] = useState({});
+    const [allCurrency, setAllCurrency] = useState(null);
+    const [resultValue, setResultValue] = useState(null);
+    const [selectedCurrency, setSelectedCurrency] = useState( '');
     const [baseCurrency, setBaseCurrency] = useState('USD');
-    const [selectedCurrency, setSelectedCurrency] = useState('RUB');
-    const [resultValue, setResultValue] = useState(0);
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         async function fetchData() {
-            //const userGeoCurrency = await getBaseUserGeoCurrency();
+            const userGeoCurrency = await getBaseUserGeoCurrency();
             const allInfoCurrency = await getAllInfoCurrency(baseCurrency);
-            const convertingValue = await convertValue(selectedCurrency, allInfoCurrency.base);
             setAllCurrency(allInfoCurrency);
-            setResultValue(convertingValue);
+            setSelectedCurrency(userGeoCurrency);
         }
         fetchData();
     }, []);
 
-    const setChangedBase = useCallback(async()=>{
-        const allInfoCurrency = await getAllInfoCurrency(baseCurrency);
-        setAllCurrency(allInfoCurrency);
-        const convertingValue = await convertValue(selectedCurrency, allInfoCurrency.base);
-        setResultValue(convertingValue);
-    }, [baseCurrency]);
-
-    const setChangedSelectedCurrency = useCallback(async()=>{
-        const convertingValue = await convertValue(selectedCurrency, allCurrency.base);
-        setResultValue(convertingValue);
-    }, [selectedCurrency]);
+    const updateValue = async ()=>{
+         const convertingValue = await convertValue(selectedCurrency, baseCurrency);
+         setResultValue(convertingValue);
+    };
 
     useEffect(() => {
-       setChangedBase();
-    }, [baseCurrency]);
-
-    useEffect(() => {
-        setChangedSelectedCurrency();
-    }, [selectedCurrency]);
+        if(selectedCurrency){
+            updateValue();
+        }
+    }, [selectedCurrency, baseCurrency]);
 
     const changeBase = (event) => {
         setBaseCurrency(event.target.value)
@@ -49,6 +39,12 @@ const Converter = () => {
     const changeSelectedCurrency = (event) => {
         setSelectedCurrency(event.target.value);
     };
+
+    const changeQuantity = (event) => {
+        setQuantity(+event.target.value)
+    }
+
+    const result = `${Math.floor((quantity * resultValue) * 100000) / 100000}: ${baseCurrency}`;
 
     return (
         <div
@@ -66,7 +62,7 @@ const Converter = () => {
                     onChange={changeSelectedCurrency}
                 >
                     {
-                        convertToOptions(allCurrency.rates)
+                        allCurrency && convertToOptions(allCurrency)
                     }
                 </select>
 
@@ -80,7 +76,7 @@ const Converter = () => {
                     onChange={changeBase}
                 >
                     {
-                        convertToOptions(allCurrency.rates)
+                       allCurrency && convertToOptions(allCurrency)
                     }
                 </select>
 
@@ -89,7 +85,7 @@ const Converter = () => {
                         type="number"
                         defaultValue={quantity}
                         min={1}
-                        onChange={(event) => setQuantity(event.target.value)}
+                        onChange={changeQuantity}
                     />
                 </div>
 
@@ -97,7 +93,7 @@ const Converter = () => {
                     <h2>Result value:</h2>
 
                     <span>
-                         {`${Math.floor((quantity * resultValue) * 100000) / 100000}: ${allCurrency.base}`}
+                         {result}
                     </span>
 
                 </div>
@@ -105,7 +101,6 @@ const Converter = () => {
 
         </div>
     )
-
 };
 
 export default Converter;

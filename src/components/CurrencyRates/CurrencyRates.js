@@ -7,9 +7,9 @@ import './current-rates.css';
 
 const CurrencyRates = () => {
 
-    const [allCurrency, setAllCurrency] = useState({});
+    const [allCurrency, setAllCurrency] = useState( {});
+    const [favorites, setFavorites] = useState( {});
     const [base, setBase] = useState('USD');
-    const [favorites, setFavorites] = useState({});
 
     useEffect(() => {
         async function fetchData() {
@@ -20,9 +20,8 @@ const CurrencyRates = () => {
     }, []);
 
     useEffect(() => {
-
             for (let k in favorites) {
-                favorites[k] = allCurrency.rates[k]
+                favorites[k] = allCurrency[k]
             }
             setFavorites(favorites);
         },
@@ -45,8 +44,8 @@ const CurrencyRates = () => {
     };
 
     const createListItems = () => {
-        if (allCurrency.rates) {
-            const array = Object.entries(allCurrency.rates);
+        if (allCurrency) {
+            const array = Object.entries(allCurrency);
             const copy = [...array];
             copy.sort((a, b) => a[0].localeCompare(b[0]));
 
@@ -69,6 +68,8 @@ const CurrencyRates = () => {
         }
     };
 
+    console.log(allCurrency)
+
     return (
         <div className="container__currency-rates">
             <div className="currency-rates">
@@ -81,7 +82,7 @@ const CurrencyRates = () => {
                       value={base}
                       onChange={changeBase}
               >
-                  {convertToOptions(allCurrency.rates)}
+                  {allCurrency && convertToOptions(allCurrency)}
 
               </select>
           </span>

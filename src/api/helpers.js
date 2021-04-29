@@ -2,7 +2,7 @@ import React from 'react';
 
 export const convertToOptions = (obj) => {
     const keysCountry = [];
-
+    console.log(obj)
     for (let k in  obj) {
         keysCountry.push(k)
     }
