@@ -44,7 +44,7 @@ const Converter = () => {
         setQuantity(+event.target.value)
     }
 
-    const result = `${Math.floor((quantity * resultValue) * 100000) / 100000}: ${baseCurrency}`;
+    const result = `${Math.floor((quantity * resultValue) * 10000) / 10000}: ${baseCurrency}`;
 
     return (
         <div

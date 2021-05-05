@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b7436b2b-902b-431f-b94f-c3c529a5a02a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Converter/Converter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Converter/Converter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CurrencyRates/CurrencyRates.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CurrencyRates/CurrencyRates.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +38,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../new_projects/sysale-test-task" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -73,7 +68,8 @@
       <workItem from="1619595716242" duration="1634000" />
       <workItem from="1619609913894" duration="117000" />
       <workItem from="1619622710386" duration="9987000" />
-      <workItem from="1619683220306" duration="5917000" />
+      <workItem from="1619683220306" duration="6925000" />
+      <workItem from="1619695201642" duration="58000" />
     </task>
     <servers />
   </component>
@@ -90,10 +86,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="686" y="209" key="FileChooserDialogImpl" timestamp="1619610035746">
+    <state x="686" y="209" key="FileChooserDialogImpl" timestamp="1619695258739">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="686" y="209" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1619610035746" />
+    <state x="686" y="209" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1619695258739" />
     <state x="252" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619627951930">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
